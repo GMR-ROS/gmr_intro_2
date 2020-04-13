@@ -7,4 +7,4 @@ Até o momento, fizemos o [primeiro subscritor](https://github.com/akihirohh/gmr
 
  A cinemática é bastante simplificada em que temos que a velocidade linear e angular do robô podem ser expressas em função das velocidades dos motores:
 
-<img src="https://latex.codecogs.com/gif.latex?v_x&space;=&space;\dfrac{v_l&space;&plus;&space;v_r}{2}" title="v_x = \dfrac{v_l + v_r}{2}" />
+![vx](https://latex.codecogs.com/gif.latex?v_x%20%3D%20%5Cdfrac%7Bv_l%20&plus;%20v_r%7D%7B2%7D)
