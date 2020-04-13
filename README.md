@@ -3,11 +3,13 @@
 Até o momento, fizemos o [primeiro subscritor](https://github.com/akihirohh/gmr_intro) e mexemos com [parâmetros e roslaunch](https://github.com/akihirohh/gmr_intro_1) sem nos importar com a aplicação em si. O que temos aqui é um robô com tração diferencial (*differential drive robot*) cujas velocidades angulares dos motores são publicadas em rotações por minuto [rpm] e cujos parâmetros conhecidos são: a) raio da roda (*/wheel_radius*); b) relação de transmissão devido à caixa de redução entre o motor e a roda (*/gear_ratio*); c) pista do eixo/distância transversal entre o centro das rodas. Um robô com tração diferencial é bastante simples (Figura 1): duas rodas atuadas independentemente e presença de apoios/rodízios para o equilíbrio tridimensional do robô.
 
  ![](figs/labrom_02.jpg)
+ 
  **Figura 1**: Exemplo de robô com tração diferencial
 
 Com base na informação das velocidades dos motores, queremos saber a posição do robô no espaço, que para robôs terrestres móveis podemos simplificar para o caso 2D, então queremos *(x, y, &theta;)*, em que *(x, y)* é a posição cartesiana e &theta; é o ângulo para o qual a frente do robô está apontada. Usaremos o modelo do monociclo em que o conjunto dos motores são reduzidos a uma única roda que tem velocidade linear na direção em que rola e velocidade angular em torno do próprio eixo, como podemos ver na Figura 2.
 
  ![](figs/robo_diferencial.png)
+ 
  **Figura 2**: Transformação de tração diferencial para modelo de monociclo
 
 em que temos um eixo (x,y) global e fixo, um eixo (x<sub>r</sub>, y<sub>r</sub>) do robô local, fixo ao seu centro de rotação e com x<sub>r</sub> apontando para a sua frente,  v<sub>r</sub> é a velocidade linear da roda direita (positiva no sentido positivo de x<sub>r</sub>), v<sub>l</sub> é a velocidade linear da roda esquerda (positiva no sentido positivo de x<sub>r</sub>) e L é o comprimento da pista do eixo. Sobre o monociclo equivalente, temos que v<sub>x</sub> é a velocidade linear no eixo x<sub>r</sub>, w<sub>z</sub> é a velocidade angular em torno do próprio eixo, portanto rotação em torno do eixo z<sub>r</sub>, e &theta; é o ângulo entre uma reta paralela ao eixo x global e o eixo x<sub>r</sub>. Seguimos que a velocidade linear e angular do monociclo podem ser expressas em função das velocidades dos motores do robô:
@@ -35,7 +37,7 @@ em que v é a velocidade linear em m/s, w_rpm é a velocidade de rotação do mo
 
 Nosso objetivo é subscrever às leituras de velocidade de motor (*/left_rpm* e */right_rpm*) e, a partir delas, publicar a posição estimada do robô. Apesar de ainda simples, nos prepararemos para projetos maiores com ROS. Uma boa prática é a utilização de classes. Neste tutorial, reescreveremos o [primeiro subscritor](https://github.com/akihirohh/gmr_intro) utilizando programação orientada a objetos (POO). O nó resultante será utilizado nos próximos tutoriais.
 
-**Reforço que embora os códigos já estejam disponíveis neste repositório, só os utilize de referência e siga o tutorial para criar o seu pacote. Criar as pastas/arquivos e digitar o código manualmente são fundamentais para entender melhor como é a estrutura de um pacote e as particularidades das funções.**
+**Embora os códigos já estejam disponíveis neste repositório, só os utilize de referência e siga o tutorial para criar o seu pacote. Criar as pastas/arquivos e digitar o código manualmente são fundamentais para entender melhor como é a estrutura de um pacote e as particularidades das funções.**
 
 Criaremos o pacote com as dependências necessárias
 ```console
