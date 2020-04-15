@@ -156,7 +156,27 @@ void RobotClass::subRight(const std_msgs::Float32::ConstPtr &msg)
 }
 ```
 
-Note que o construtor recebe o ponteiro de ros::NodeHandle, aloca para um membro privado `_nh`, faz a importação de parâmetros e inicialização dos subscritores. Observe que essa inicialização é diferente de quando o subscritor foi escrito sem POO: eram três argumentos e agora são quatro. Agora também é necessário passar uma referência à classe com o uso da keyword `this`.
+Note que o construtor recebe o ponteiro de ros::NodeHandle, aloca para um membro privado `_nh`, faz a importação de parâmetros e inicialização dos subscritores. Na importação de parâmetros, utilizamos uma função template:
+```cpp
+void ros::param::param 	( 	const std::string &  	param_name,
+		                    T &  	param_val,
+		                    const T &  	default_val	 
+	                    ) 
+``` 
+
+então temos a possibilidade de explicitamente definir o tipo:
+
+```cpp
+    _nh->param<std::string>("nome_topico_left_rpm", _params.topic_name_left_rpm, "/left_rpm");
+```
+
+ou passar todos os argumentos como <std::string>. Note que para o compilador, o argumento `"/left_rpm"` é interpretado como char[10] e, portanto, há conflito na dedução do tipo necessário para a chamada da função:
+
+```cpp
+    _nh->param("nome_topico_left_rpm", _params.topic_name_left_rpm, std::string("/left_rpm"));
+```
+
+ Observe que a inicialização dos subscritores é diferente de quando o subscritor foi escrito sem POO: eram três argumentos e agora são quatro. Agora também é necessário passar uma referência à classe com o uso da keyword `this`.
 
 ```cpp
     _sub_left = _nh->subscribe(_params.topic_name_left_rpm, 1, &RobotClass::subLeft, this);
