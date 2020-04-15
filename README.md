@@ -70,7 +70,7 @@ int main(int argc, char **argv)
 ```
 Colocaremos a declaração da nossa classe RobotClass em arquivos separados como forma de boa prática. Teremos o cabeçalho em gmr_intro_poo/include/gmr_intro_poo/gmr_intro_poo.hpp e a implementação em gmr_intro_poo/src/gmr_intro_poo.cpp. No código acima, note a inclusão do cabeçalho da classe:
 ```cpp
-#include <gmr_intro_poo/gmr_intro_poo.h>
+#include <gmr_intro_poo/gmr_intro_poo.hpp>
 ```
 e que na criação da instância, passamos o `nh`, nosso ros::NodeHandle:
 ```cpp
