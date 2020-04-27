@@ -1,6 +1,6 @@
 # Introdução de ROS e robôs móveis terrestres
 
-Até o momento, fizemos o [primeiro subscritor](https://github.com/akihirohh/gmr_intro) e mexemos com [parâmetros e roslaunch](https://github.com/akihirohh/gmr_intro_1) sem nos importar com a aplicação em si. O que temos aqui é um robô com tração diferencial (*differential drive robot*) cujas velocidades angulares dos motores são publicadas em rotações por minuto [rpm] e cujos parâmetros conhecidos são: a) raio da roda (*/wheel_radius*); b) relação de transmissão devido à caixa de redução entre o motor e a roda (*/gear_ratio*); c) pista do eixo/distância transversal entre o centro das rodas. Um robô com tração diferencial é bastante simples (Figura 1): duas rodas atuadas independentemente e presença de apoios/rodízios para o equilíbrio tridimensional do robô.
+Até o momento, fizemos o [primeiro subscritor](https://bitbucket.org/grupomecatronica/gmr_intro) e mexemos com [parâmetros e roslaunch](https://bitbucket.org/grupomecatronica/gmr_intro_1) sem nos importar com a aplicação em si. O que temos aqui é um robô com tração diferencial (*differential drive robot*) cujas velocidades angulares dos motores são publicadas em rotações por minuto [rpm] e cujos parâmetros conhecidos são: a) raio da roda (*/wheel_radius*); b) relação de transmissão devido à caixa de redução entre o motor e a roda (*/gear_ratio*); c) pista do eixo/distância transversal entre o centro das rodas. Um robô com tração diferencial é bastante simples (Figura 1): duas rodas atuadas independentemente e presença de apoios/rodízios para o equilíbrio tridimensional do robô.
 
  ![](figs/labrom_02.jpg)
  
@@ -35,7 +35,7 @@ v = w_rpm / T * R * 2&pi;/60 (Eq. 9)
 
 em que v é a velocidade linear em m/s, w_rpm é a velocidade de rotação do motor em rpm, T é a relação de transmissão e R é o raio da roda.
 
-Nosso objetivo é subscrever às leituras de velocidade de motor (*/left_rpm* e */right_rpm*) e, a partir delas, publicar a posição estimada do robô. Apesar de ainda simples, nos prepararemos para projetos maiores com ROS. Uma boa prática é a utilização de classes. Neste tutorial, reescreveremos o [primeiro subscritor](https://github.com/akihirohh/gmr_intro) utilizando programação orientada a objetos (POO). O nó resultante será utilizado nos próximos tutoriais.
+Nosso objetivo é subscrever às leituras de velocidade de motor (*/left_rpm* e */right_rpm*) e, a partir delas, publicar a posição estimada do robô. Apesar de ainda simples, nos prepararemos para projetos maiores com ROS. Uma boa prática é a utilização de classes. Neste tutorial, reescreveremos o [primeiro subscritor](https://bitbucket.org/grupomecatronica/gmr_intro) utilizando programação orientada a objetos (POO). O nó resultante será utilizado nos próximos tutoriais.
 
 **Embora os códigos já estejam disponíveis neste repositório, só os utilize de referência e siga o tutorial para criar o seu pacote. Criar as pastas/arquivos e digitar o código manualmente são fundamentais para entender melhor como é a estrutura de um pacote e as particularidades das funções.**
 
