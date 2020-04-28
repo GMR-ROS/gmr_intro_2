@@ -253,3 +253,6 @@ Você observará uma saída como:
 devido ao atributo `output="screen"` que colocamos em ambos os nós.
 
 Por enquanto, só utilizamos a Eq. 9 já que só fizemos a conversão do valor recebido em rpm para m/s. No próximo tutorial, acrescentaremos um publicador da posição do robô à classe RobotClass e, portanto, utilizaremos as outras equações.
+
+
+Contato: Akihiro (akihirohh@gmail.com)
